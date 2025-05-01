@@ -20,7 +20,7 @@ boolean upKey, downKey, leftKey, rightKey;
 
 
 void setup() {
-  size(600, 600, P2D);
+  size(1000, 600, P2D);
   x = width / 3;
   y = height/2;
 
@@ -33,10 +33,10 @@ void setup() {
   bally = height/2;
   balld = 50;
   vx = 8;
-  vy = 10;
+  vy = 8;
 
-  ax = 0;
-  ay = 1;
+  ax = 4;
+  ay = 4;
 }
 
 
@@ -58,44 +58,43 @@ void draw() {
   circle(ballx, bally, balld);
 
   //movement
-  if (wKey && y > 0) y -= 5; /// FIX TOMRROW FIX TOMORROW FIX TOORROW FI X TORMOROOW
-  if (sKey && y < height) y += 5;
-  if (aKey && x > 0) x -= 5;
-  if (dKey && x < width) x += 5;
+  if (wKey && y > d / 2) y -= 5; /// FIX TOMRROW FIX TOMORROW FIX TOORROW FI X TORMOROOW
+  if (sKey && y < height - d/2) y += 5;
+  if (aKey && x > d/2) x -= 5;
+  if (dKey && x < width - d/2) x += 5;
 
-  if (upKey && y2 > 0) y2 -=20;
-  if (downKey && y2 < height) y2 += 20;
-  if (leftKey && x2 > 0) x2 -= 20;
-  if (rightKey && x < width) x2 += 20; // FI XTOMROROW FIX TOMORORWOW
+  if (upKey && y2 > d/2) y2 -=5;
+  if (downKey && y2 < height - d/2) y2 += 5;
+  if (leftKey && x2 > d/2) x2 -= 5;
+  if (rightKey && x2 < width - d/2) x2 += 5; // FI XTOMROROW FIX TOMORORWOW
   
 
   ballx += vx;
   bally += vy;
 
   //gravity
-  vx += ax;
-  vy += ay;
 
-  //bouncing code
+  ////bouncing code
   if (bally <= 0) {
-    vy *= -0.9;
+    vy *= -.9;
     bally = 0;
   }
   if (bally >= height) {
-    vy *= -0.9;
+    vy *= -.9;
     bally = height;
   }
   if (ballx <= 0) {
-    vx *= -0.9;
+    vx *= -.9;
     ballx = 0;
   }
   if (ballx >= height) {
-    vx *= -0.9;
+    vx *= -.9;
     ballx = height;
   }
 
   if (dist(x, y, ballx, bally) <= d/2 + balld / 2) {
-    vy = vx = 0;
+ vx = (ballx - x) / 5;
+ vy = (bally - y) / 5;
   }
 }
 
