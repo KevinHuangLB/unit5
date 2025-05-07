@@ -12,10 +12,13 @@ color white = #ffffff;
 color black  = #000000;
 color red = #FF0000;
 color blue = #0000ff;
+color green = #0AFF0C;
 
 // player variables
 float x, y, d;
 float x2, y2;
+int playerSpeed;
+int winner;
 
 //ball variables
 float ballx, bally, balld;
@@ -23,6 +26,9 @@ float ballx, bally, balld;
 float vx, vy;
 
 float ax, ay;
+
+int lastTouch;
+int lastTouchCount;
 
 // goal variabel
 float goalx,goalx2,goaly,goaly2,goald;
@@ -60,11 +66,13 @@ void setup() {
   ballx = width /2 ;
   bally = height/2;
   balld = 50;
-  vx = 11;
-  vy = 11;
+  vx = 13;
+  vy = 13;
+  
+  playerSpeed = 13;
 
-  ax = 40;
-  ay = 40;
+  ax = 10;
+  ay = 10;
 
   // goal setup
   goalx = width/2;
@@ -77,6 +85,8 @@ void setup() {
   score2 = 0;
   
   mode = GAME;
+  lastTouch = -1;
+  winner = 0;
 }
 
 

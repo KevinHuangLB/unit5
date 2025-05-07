@@ -31,5 +31,5 @@ void keyReleased() {
   if (key == '2') goal2LeftKey = false;
   if (key == '3') goal2RightKey = false;
   
-  
+  if (key == 'g') mode = PAUSE;
 }
