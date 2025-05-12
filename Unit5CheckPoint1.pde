@@ -29,6 +29,7 @@ float ax, ay;
 
 int lastTouch;
 int lastTouchCount;
+int ballSpeed;
 
 // goal variabel
 float goalx,goalx2,goaly,goaly2,goald;
@@ -65,26 +66,27 @@ void setup() {
   //ball setup
   ballx = width /2 ;
   bally = height/2;
-  balld = 50;
-  vx = 13;
-  vy = 13;
+  balld = 75;
+  vx = 3;
+  vy = 3;
   
-  playerSpeed = 13;
+  playerSpeed = 15;
+  ballSpeed = 6;
 
-  ax = 10;
-  ay = 10;
+  ax = 5;
+  ay = 5;
 
   // goal setup
   goalx = width/2;
   goalx2 = width/2;
   goaly = 0;
   goaly2 = height;
-  goald = width/3;
+  goald = width/4;
   
   score = 0;
   score2 = 0;
   
-  mode = GAME;
+  mode = INTRO;
   lastTouch = -1;
   winner = 0;
 }

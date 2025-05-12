@@ -1,10 +1,13 @@
+void gameClicks(){
+  mode = PAUSE;
+}
 void game() {
   lastTouchCount++;
-  if (score == 3) {
+  if (score == 4) {
     winner = 1;
     mode = GAMEOVER;
   }
-  if (score2 == 3){
+  if (score2 == 4){
     winner = 2;
     mode = GAMEOVER;
   }
@@ -13,8 +16,9 @@ void game() {
   println("First player score is " + score);
   println("Second player score is " + score2);
   // player 1
-  if (score == 1) fill(130, 0, 0);
-  else if (score == 2) fill(60, 0, 0);
+  if (score == 1) fill(190, 0, 0);
+  else if (score == 2) fill(110, 0, 0);
+  else if (score == 3) fill(70,0,0);
   else {
     fill(red);
   }
@@ -24,8 +28,9 @@ void game() {
 
 
   //player 2
-  if (score2 == 1) fill(0, 0, 130);
-  else if (score2 == 2) fill(0, 0, 60);
+  if (score2 == 1) fill(0, 0, 190);
+  else if (score2 == 2) fill(0, 0, 110);
+  else if (score2 == 3) fill(0,0,70);
   else {
     fill(blue);
   }
@@ -57,10 +62,10 @@ void game() {
   if (leftKey && x2 > d/2) x2 -= playerSpeed;
   if (rightKey && x2 < width - d/2) x2 += playerSpeed; // FI XTOMROROW FIX TOMORORWOW
 
-  if (goalLeftKey && goalx > goald / 2) goalx -=7;
-  if (goalRightKey && goalx < width - goald/2) goalx += 7;
-  if (goal2LeftKey && goalx2 > goald/2) goalx2 -= 7;
-  if (goal2RightKey && goalx2 < width - goald/2) goalx2 += 7; // FI XTOMROROW FIX TOMORORWOW
+  if (goalLeftKey && goalx > goald / 2) goalx -=ballSpeed;
+  if (goalRightKey && goalx < width - goald/2) goalx += ballSpeed;
+  if (goal2LeftKey && goalx2 > goald/2) goalx2 -= ballSpeed;
+  if (goal2RightKey && goalx2 < width - goald/2) goalx2 += ballSpeed; // FI XTOMROROW FIX TOMORORWOW
 
 
   ballx += vx;
@@ -70,19 +75,19 @@ void game() {
 
   ////bouncing code
   if (bally <= 0) {
-    vy *= -1;
+    vy *= -.90;
     bally = 0;
   }
   if (bally >= height) {
-    vy *= -1;
+    vy *= -.90;
     bally = height;
   }
   if (ballx <= 0) {
-    vx *= -1;
+    vx *= -.90;
     ballx = 0;
   }
   if (ballx >= height) {
-    vx *= -1;
+    vx *= -.90;
     ballx = height;
   }
 

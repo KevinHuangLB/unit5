@@ -1,3 +1,9 @@
+void mouseReleased(){
+  if (mode == INTRO) introClicks();
+  else if (mode == GAME) gameClicks();
+  else if (mode == GAMEOVER) gameOverClicks();
+  else if (mode == PAUSE) pauseClicks();
+}
 void keyPressed() {
   if (key == 'w') wKey = true;
   if (key == 's') sKey = true;
@@ -31,5 +37,4 @@ void keyReleased() {
   if (key == '2') goal2LeftKey = false;
   if (key == '3') goal2RightKey = false;
   
-  if (key == 'g') mode = PAUSE;
 }

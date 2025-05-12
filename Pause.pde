@@ -1,14 +1,11 @@
+void pauseClicks(){
+  mode = GAME;
+}
 void pause(){
-background (0);
-fill (255, 0, 0);
-circle(CENTER, CENTER, 200);
-textSize(18);
-
-textAlign(CENTER, CENTER);
-text("YOU PAUSED LITTLE SISSYUASDFASDFAWFFEAWEFW COWARD SCARED COW ", 18, 18);
-fill(black);
-circle((CENTER - 50), (CENTER - 50), 75);
-circle((CENTER + 50), (CENTER - 50), 75);
-
-
+  textAlign(CENTER);
+  textSize(200);
+  fill(0);
+  rectMode(CENTER);
+  rect(width/2 - 60, height / 2, 40,200);
+  rect(width/2 + 60, height / 2, 40,200);
 }
