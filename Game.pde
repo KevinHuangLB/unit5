@@ -75,19 +75,19 @@ void game() {
 
   ////bouncing code
   if (bally <= 0) {
-    vy *= -.90;
+    vy *= -.85;
     bally = 0;
   }
   if (bally >= height) {
-    vy *= -.90;
+    vy *= -.85;
     bally = height;
   }
   if (ballx <= 0) {
-    vx *= -.90;
+    vx *= -.85;
     ballx = 0;
   }
   if (ballx >= height) {
-    vx *= -.90;
+    vx *= -.85;
     ballx = height;
   }
 

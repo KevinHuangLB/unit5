@@ -61,20 +61,20 @@ void setup() {
 
   x2 = width / 3 * 2;
   y2 = height/2;
-  d = 100;
+  d = 110;
 
   //ball setup
   ballx = width /2 ;
   bally = height/2;
-  balld = 75;
+  balld = 85;
   vx = 3;
   vy = 3;
   
-  playerSpeed = 15;
-  ballSpeed = 6;
+  playerSpeed = 12;
+  ballSpeed = 200;
 
-  ax = 5;
-  ay = 5;
+  ax = 3;
+  ay = 3;
 
   // goal setup
   goalx = width/2;
