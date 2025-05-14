@@ -71,7 +71,7 @@ void setup() {
   vy = 3;
   
   playerSpeed = 12;
-  ballSpeed = 200;
+  ballSpeed = 20;
 
   ax = 3;
   ay = 3;

@@ -1,4 +1,4 @@
-void gameClicks(){
+void gameClicks() {
   mode = PAUSE;
 }
 void game() {
@@ -7,7 +7,7 @@ void game() {
     winner = 1;
     mode = GAMEOVER;
   }
-  if (score2 == 4){
+  if (score2 == 4) {
     winner = 2;
     mode = GAMEOVER;
   }
@@ -18,7 +18,7 @@ void game() {
   // player 1
   if (score == 1) fill(190, 0, 0);
   else if (score == 2) fill(110, 0, 0);
-  else if (score == 3) fill(70,0,0);
+  else if (score == 3) fill(70, 0, 0);
   else {
     fill(red);
   }
@@ -30,7 +30,7 @@ void game() {
   //player 2
   if (score2 == 1) fill(0, 0, 190);
   else if (score2 == 2) fill(0, 0, 110);
-  else if (score2 == 3) fill(0,0,70);
+  else if (score2 == 3) fill(0, 0, 70);
   else {
     fill(blue);
   }
@@ -110,6 +110,18 @@ void game() {
       score2++;
       ballx = width / 2;
       bally = height / 2;
+      //float random = random(2);
+      //if (random < 1) {
+        x = width / 3;
+        y = height/2;
+        x2 = width / 3 * 2;
+        y2 = height/2;
+      //} else {
+        x2 = width / 3;
+        y2 = height/2;
+        x = width / 3 * 2;
+        y = height/2;
+      //}
       vx = 0;
       vy = 0;
       background(red);
@@ -120,6 +132,18 @@ void game() {
       background(blue);
       ballx = width/2;
       bally = height /2;
+      //float random = random(2);
+      //if (random < 1) {
+      //  x = width / 3;
+      //  y = height/2;
+      //  x2 = width / 3 * 2;
+      //  y2 = height/2;
+      //} else {
+        x2 = width / 3;
+        y2 = height/2;
+        x = width / 3 * 2;
+        y = height/2;
+      //}
       vx = 0;
       vy = 0;
       score++;
