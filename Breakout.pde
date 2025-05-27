@@ -35,7 +35,7 @@ int[] y;
 int brickd;
 
 void setup() {
-  size(1000, 1000,P2D);
+  size(1000, 1000, P2D);
 
   mode = INTRO;
 
@@ -46,7 +46,7 @@ void setup() {
 
   //ball setup
   ballx = width/2;
-  bally = height/2;
+  bally = height/5  *4;
   balld = 20;
 
   vx = 0;
@@ -54,13 +54,14 @@ void setup() {
 
   //brick variables
   //setup array of bricks
-  x = new int[40];
-  y = new int[40];
-  int i = 25;
-  int j = 25;
+  int numBricks = 15;
+  x = new int[numBricks];
+  y = new int[numBricks];
+  int i = 75;
+  int j = 100;
   int count = 0;
   while (i < 500) {
-    j = 25;
+    j = 100;
     while (j < width) {
       x[count] = j;
       y[count] = i;
@@ -70,8 +71,8 @@ void setup() {
     i += 200;
   }
   println(count);
-  
-  brickd = 100;
+
+  brickd = 75;
 }
 void draw() {
   if (mode == INTRO) {

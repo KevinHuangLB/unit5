@@ -19,6 +19,10 @@ void game() {
   int i = 0;
   while (i < x.length) {
     circle(x[i], y[i], brickd);
+    if (dist(ballx, bally, x[i], y[i]) < balld/2 + brickd/2) { //Brick collsiosjn
+      vx = (ballx - x[i]) / 3;
+      vy = (bally - y[i]) / 3;
+    }
     i++;
   }
 
