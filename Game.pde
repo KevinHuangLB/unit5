@@ -18,10 +18,8 @@ void game() {
   fill(white);
   int i = 0;
   while (i < x.length) {
-    circle(x[i], y[i], brickd);
-    if (dist(ballx, bally, x[i], y[i]) < balld/2 + brickd/2) { //Brick collsiosjn
-      vx = (ballx - x[i]) / 3;
-      vy = (bally - y[i]) / 3;
+    if (alive[i] == true){
+    manageBrick(i);
     }
     i++;
   }
@@ -57,4 +55,28 @@ void game() {
   //movement
   if (leftKey && playerX > playerD / 2) playerX -= playerSpeed; // BROKEN
   if (rightKey && playerX < width - playerD / 2) playerX += playerSpeed;
+}
+void manageBrick(int i){
+      switch (i) {
+      case 0: fill(pastelRed); //fill thing is broken due to dissapearing bricks FIX FIX IFX
+      break;
+      case 13: fill(pastelOrange);
+      break;
+      case 26: fill(pastelYellow);
+      break;
+      case 39: fill(pastelGreen);
+      break;
+      case 52: fill(pastelLightBlue);
+      break;
+      case 65: fill(pastelBlue);
+      break;
+      case 78: fill(pastelPurple);
+      break;
+    }
+    circle(x[i], y[i], brickd);
+    if (dist(ballx, bally, x[i], y[i]) < balld/2 + brickd/2) { //Brick collsiosjn
+      vx = (ballx - x[i]) / 3;
+      vy = (bally - y[i]) / 3;
+      alive[i] = false;
+    }
 }

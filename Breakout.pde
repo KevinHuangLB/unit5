@@ -12,6 +12,14 @@ final int GAMEOVER = 3;
 color black = #000000;
 color white = #ffffff;
 
+color pastelRed = #ffadad;
+color pastelOrange = #ffd6a5;
+color pastelYellow = #fdffb6;
+color pastelGreen = #caffbf;
+color pastelLightBlue = #9bf6ff;
+color pastelBlue = #a0c4ff;
+color pastelPurple = #bdb2ff;
+
 //player variables
 int playerX;
 int playerY;
@@ -31,8 +39,10 @@ boolean leftKey, rightKey;
 //brick variables
 int[] x;
 int[] y;
+boolean[] alive;
 
 int brickd;
+
 
 void setup() {
   size(1000, 1000, P2D);
@@ -46,7 +56,7 @@ void setup() {
 
   //ball setup
   ballx = width/2;
-  bally = height/5  *4;
+  bally = height/5 * 4;
   balld = 20;
 
   vx = 0;
@@ -54,25 +64,28 @@ void setup() {
 
   //brick variables
   //setup array of bricks
-  int numBricks = 15;
+  int numBricks = 91; // 7 x 13 
   x = new int[numBricks];
   y = new int[numBricks];
-  int i = 75;
-  int j = 100;
+  alive = new boolean[numBricks];
+  int i = 50;
+  int j = 50;
   int count = 0;
-  while (i < 500) {
-    j = 100;
+  while (i < 501) { //501 just to make one more row, since last row is on y=500
+    j = 50;
     while (j < width) {
       x[count] = j;
       y[count] = i;
-      j += 200;
+      alive[count] = true;
+      j += 75;
       count++;
     }
-    i += 200;
+    i += 75;
   }
   println(count);
-
-  brickd = 75;
+  //x: 50 125 200 275 350 425 500 575 650 725 800 875 950
+  //y: 50 125 200 275 350 425
+  brickd = 25;
 }
 void draw() {
   if (mode == INTRO) {
