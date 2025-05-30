@@ -78,5 +78,6 @@ void manageBrick(int i){
       vx = (ballx - x[i]) / 3;
       vy = (bally - y[i]) / 3;
       alive[i] = false;
+      score++;
     }
 }

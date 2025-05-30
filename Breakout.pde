@@ -43,6 +43,8 @@ boolean[] alive;
 
 int brickd;
 
+int score;
+
 
 void setup() {
   size(1000, 1000, P2D);
@@ -51,7 +53,7 @@ void setup() {
 
   playerX = width/2;
   playerY = height;
-  playerD = 200;
+  playerD = 125;
   playerSpeed = 10;
 
   //ball setup
@@ -82,10 +84,11 @@ void setup() {
     }
     i += 75;
   }
-  println(count);
   //x: 50 125 200 275 350 425 500 575 650 725 800 875 950
   //y: 50 125 200 275 350 425
   brickd = 25;
+  
+  score = 0;
 }
 void draw() {
   if (mode == INTRO) {
