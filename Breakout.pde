@@ -45,9 +45,14 @@ int brickd;
 
 int score;
 
+// gif variables
+PImage[] gif;
+int numberOfFrames;
+int frame = 0;
+
 
 void setup() {
-  size(1000, 1000, P2D);
+  size(1000, 1000);
 
   mode = INTRO;
 
@@ -89,6 +94,17 @@ void setup() {
   brickd = 25;
   
   score = 0;
+  
+  // gif SETUP
+  numberOfFrames = 10;
+  gif = new PImage[numberOfFrames];
+  
+  int loopCounterGif = 0;
+  while (loopCounterGif < 10){
+    gif[loopCounterGif] = loadImage("frame_" + loopCounterGif + "_delay-0.06s.gif");
+    loopCounterGif++;
+  }
+  
 }
 void draw() {
   if (mode == INTRO) {
