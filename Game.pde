@@ -2,6 +2,9 @@ void gameClicks() {
   mode = PAUSE;
 }
 void game() {
+  if (playerLives == 0){
+    mode = GAMEOVER;
+  }
   background(black);
   // player
   fill(white);
@@ -32,8 +35,11 @@ void game() {
     bally = 0;
   }
   if (bally >= height) { // CHANGE THIS WHEN YOU GET TO THAT POINT
-    vy *= -1;
-    bally = height;
+    ballx = width/2;
+    bally = height/5 * 3;
+    playerLives--;
+    vx = 0;
+    vy = 3;
   }
   if (ballx <= 0) {
     vx += 3;
@@ -55,22 +61,29 @@ void game() {
   //movement
   if (leftKey && playerX > playerD / 2) playerX -= playerSpeed; // BROKEN
   if (rightKey && playerX < width - playerD / 2) playerX += playerSpeed;
+  
+  //score
+  textAlign(CENTER, CENTER);
+  textSize(18);
+  text("Score: " + score, width/29, height*72/73);
+  text("Lives: " + playerLives, width*28/29, height*72/73);
+
 }
 void manageBrick(int i){
-      switch (i) {
-      case 0: fill(pastelRed); //fill thing is broken due to dissapearing bricks FIX FIX IFX
+      switch (y[i]) {
+      case 50: fill(pastelRed); //fill thing is broken due to dissapearing bricks FIX FIX IFX
       break;
-      case 13: fill(pastelOrange);
+      case 125: fill(pastelOrange);
       break;
-      case 26: fill(pastelYellow);
+      case 200: fill(pastelYellow);
       break;
-      case 39: fill(pastelGreen);
+      case 275: fill(pastelGreen);
       break;
-      case 52: fill(pastelLightBlue);
+      case 350: fill(pastelLightBlue);
       break;
-      case 65: fill(pastelBlue);
+      case 425: fill(pastelBlue);
       break;
-      case 78: fill(pastelPurple);
+      case 500: fill(pastelPurple);
       break;
     }
     circle(x[i], y[i], brickd);

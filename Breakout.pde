@@ -1,3 +1,5 @@
+import processing.javafx.*;
+
 // Kevin Huang
 // 2-3
 // May. 15 2025
@@ -25,6 +27,7 @@ int playerX;
 int playerY;
 int playerD;
 int playerSpeed;
+int playerLives;
 
 //ball variables
 float ballx, bally, balld;
@@ -52,18 +55,19 @@ int frame = 0;
 
 
 void setup() {
-  size(1000, 1000);
+  size(1000, 1000,FX2D);
 
   mode = INTRO;
-
+//player setup
   playerX = width/2;
   playerY = height;
   playerD = 125;
   playerSpeed = 10;
+  playerLives = 3;
 
   //ball setup
   ballx = width/2;
-  bally = height/5 * 4;
+  bally = height/5 * 3;
   balld = 20;
 
   vx = 0;
