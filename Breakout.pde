@@ -53,6 +53,9 @@ PImage[] gif;
 int numberOfFrames;
 int frame = 0;
 
+//images
+PImage gameOverBackground;
+
 
 void setup() {
   size(1000, 1000,FX2D);
@@ -108,6 +111,9 @@ void setup() {
     gif[loopCounterGif] = loadImage("frame_" + loopCounterGif + "_delay-0.06s.gif");
     loopCounterGif++;
   }
+  
+  //image SETUP
+  gameOverBackground = loadImage("gameoverbackground.png");
   
 }
 void draw() {

@@ -40,6 +40,9 @@ void game() {
     playerLives--;
     vx = 0;
     vy = 3;
+    playerX = width/2;
+    playerY = height;
+    
   }
   if (ballx <= 0) {
     vx += 3;
@@ -65,8 +68,8 @@ void game() {
   //score
   textAlign(CENTER, CENTER);
   textSize(18);
-  text("Score: " + score, width/29, height*72/73);
-  text("Lives: " + playerLives, width*28/29, height*72/73);
+  text("Score: " + score, width*28/29, height*72/73);
+  text("Lives: " + playerLives, width/29, height*72/73);
 
 }
 void manageBrick(int i){
