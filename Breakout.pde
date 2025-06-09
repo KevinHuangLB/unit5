@@ -1,8 +1,20 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 import processing.javafx.*;
+import processing.sound.*;
 
 // Kevin Huang
 // 2-3
 // May. 15 2025
+
+//SOUND VARIABLES
+Minim minim;
+AudioPlayer win,lose,hit,scoring,intro;
 
 int mode;
 
@@ -56,11 +68,20 @@ int frame = 0;
 //images
 PImage gameOverBackground;
 
-
+ 
 void setup() {
   size(1000, 1000,FX2D);
 
   mode = INTRO;
+  
+  //Minim
+  minim = new Minim(this);
+  win = minim.loadFile("win.wav");
+  lose = minim.loadFile("lose.wav");
+  scoring = minim.loadFile("scoring.wav");
+  hit = minim.loadFile("hit.wav");
+  intro = minim.loadFile("intro.mp3");
+  
 //player setup
   playerX = width/2;
   playerY = height;

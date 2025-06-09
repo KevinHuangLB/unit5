@@ -57,6 +57,8 @@ void game() {
 
   // ball collision code
   if (dist(playerX, playerY, ballx, bally) <= playerD / 2 + balld / 2) {
+    hit.rewind();
+    hit.play();
     vx = (ballx - playerX) / 7; // just for slowing it down
     vy = (bally - playerY) / 7;
   }
@@ -91,6 +93,8 @@ void manageBrick(int i){
     }
     circle(x[i], y[i], brickd);
     if (dist(ballx, bally, x[i], y[i]) < balld/2 + brickd/2) { //Brick collsiosjn
+      scoring.rewind();
+      scoring.play();
       vx = (ballx - x[i]) / 3;
       vy = (bally - y[i]) / 3;
       alive[i] = false;
