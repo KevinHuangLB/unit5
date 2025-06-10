@@ -1,7 +1,12 @@
+// FIX WIN WIN DOES NOT WORK
 void gameOverClicks() {
   mode = INTRO;
   playerLives = 3;
   score = 0;
+  win.pause();
+  win.rewind();
+  lose.pause();
+  lose.rewind();
 }
 void gameOver() {
   background(black);

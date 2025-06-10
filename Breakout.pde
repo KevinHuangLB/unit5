@@ -15,6 +15,8 @@ import processing.sound.*;
 //SOUND VARIABLES
 Minim minim;
 AudioPlayer win,lose,hit,scoring,intro;
+//Font
+PFont f;
 
 int mode;
 
@@ -81,6 +83,9 @@ void setup() {
   scoring = minim.loadFile("scoring.wav");
   hit = minim.loadFile("hit.wav");
   intro = minim.loadFile("intro.mp3");
+  
+  // FONT
+f = createFont("Simanja.ttf",175);
   
 //player setup
   playerX = width/2;
