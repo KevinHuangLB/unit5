@@ -99,8 +99,8 @@ f = createFont("Simanja.ttf",175);
   bally = height/5 * 3;
   balld = 20;
 
-  vx = 0;
-  vy = 3;
+  vx = 0; 
+  vy = 3; 
 
   //brick variables
   //setup array of bricks

@@ -5,6 +5,7 @@ void game() {
   if (playerLives == 0){
     mode = GAMEOVER;
   }
+  else if (score == 91) mode = GAMEOVER;
   background(black);
   // player
   fill(white);
