@@ -2,10 +2,9 @@ void gameClicks() {
   mode = PAUSE;
 }
 void game() {
-  if (playerLives == 0){
+  if (playerLives == 0) {
     mode = GAMEOVER;
-  }
-  else if (score == 91) mode = GAMEOVER;
+  } else if (score == 91) mode = GAMEOVER;
   background(black);
   // player
   fill(white);
@@ -22,8 +21,8 @@ void game() {
   fill(white);
   int i = 0;
   while (i < x.length) {
-    if (alive[i] == true){
-    manageBrick(i);
+    if (alive[i] == true) {
+      manageBrick(i);
     }
     i++;
   }
@@ -43,7 +42,6 @@ void game() {
     vy = 3;
     playerX = width/2;
     playerY = height;
-    
   }
   if (ballx <= 0) {
     vx += 3;
@@ -67,38 +65,50 @@ void game() {
   //movement
   if (leftKey && playerX > playerD / 2) playerX -= playerSpeed; // BROKEN
   if (rightKey && playerX < width - playerD / 2) playerX += playerSpeed;
-  
+
   //score
   textAlign(CENTER, CENTER);
   textSize(18);
-  text("Score: " + score, width*28/29, height*72/73);
-  text("Lives: " + playerLives, width/29, height*72/73);
-
+  fill(pastelPurpleDark);
+  text("Score: " + score, width*26.015/29, height*71.015/73);
+  fill(pastelPurple);
+  text("Score: " + score, width*26/29, height*71/73);
+  fill(pastelPurple);
+  text("Lives: " + playerLives, width*2/29, height*71/73);
+  fill(pastelPurpleDark);
+  text("Lives: " + playerLives, width*2/29, height*71/73);
 }
-void manageBrick(int i){
-      switch (y[i]) {
-      case 50: fill(pastelRed); //fill thing is broken due to dissapearing bricks FIX FIX IFX
-      break;
-      case 125: fill(pastelOrange);
-      break;
-      case 200: fill(pastelYellow);
-      break;
-      case 275: fill(pastelGreen);
-      break;
-      case 350: fill(pastelLightBlue);
-      break;
-      case 425: fill(pastelBlue);
-      break;
-      case 500: fill(pastelPurple);
-      break;
-    }
-    circle(x[i], y[i], brickd);
-    if (dist(ballx, bally, x[i], y[i]) < balld/2 + brickd/2) { //Brick collsiosjn
-      scoring.rewind();
-      scoring.play();
-      vx = (ballx - x[i]) / 3;
-      vy = (bally - y[i]) / 3;
-      alive[i] = false;
-      score++;
-    }
+void manageBrick(int i) {
+  switch (y[i]) {
+  case 50:
+    fill(pastelRed); //fill thing is broken due to dissapearing bricks FIX FIX IFX
+    break;
+  case 125:
+    fill(pastelOrange);
+    break;
+  case 200:
+    fill(pastelYellow);
+    break;
+  case 275:
+    fill(pastelGreen);
+    break;
+  case 350:
+    fill(pastelLightBlue);
+    break;
+  case 425:
+    fill(pastelBlue);
+    break;
+  case 500:
+    fill(pastelPurple);
+    break;
+  }
+  circle(x[i], y[i], brickd);
+  if (dist(ballx, bally, x[i], y[i]) < balld/2 + brickd/2) { //Brick collsiosjn
+    scoring.rewind();
+    scoring.play();
+    vx = (ballx - x[i]) / 3;
+    vy = (bally - y[i]) / 3;
+    alive[i] = false;
+    score++;
+  }
 }

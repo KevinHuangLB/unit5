@@ -35,6 +35,7 @@ color pastelGreen = #caffbf;
 color pastelLightBlue = #9bf6ff;
 color pastelBlue = #a0c4ff;
 color pastelPurple = #bdb2ff;
+color pastelPurpleDark = #9A8BFF;
 
 //player variables
 int playerX;
