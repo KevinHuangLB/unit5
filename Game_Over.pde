@@ -3,8 +3,6 @@ void gameOverClicks() {
   mode = INTRO;
   playerLives = 3;
   score = 0;
-  win.pause();
-  win.rewind();
   lose.pause();
   lose.rewind();
 }
@@ -16,6 +14,9 @@ void gameOver() {
   textSize(150);
   if (playerLives == 0) {
     lose.play();
+    fill(redDark);
+    text("YOU LOSE!", 505, 405);
+    fill(255, 0, 0);
     text("YOU LOSE!", 500, 400);
     textSize(50);
     fill(white);
@@ -24,7 +25,7 @@ void gameOver() {
     fill(255, 0, 0);
     text("Score: " + score, 500, 500);
   }
-    int numBricks = 91; // 7 x 13 
+  int numBricks = 91; // 7 x 13
   x = new int[numBricks];
   y = new int[numBricks];
   alive = new boolean[numBricks];

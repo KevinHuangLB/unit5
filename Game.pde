@@ -4,7 +4,7 @@ void gameClicks() {
 void game() {
   if (playerLives == 0) {
     mode = GAMEOVER;
-  } else if (score == 91) mode = GAMEOVER;
+  } else if (score == 91) mode = WIN;
   background(black);
   // player
   fill(white);
@@ -73,9 +73,9 @@ void game() {
   text("Score: " + score, width*26.015/29, height*71.015/73);
   fill(pastelPurple);
   text("Score: " + score, width*26/29, height*71/73);
-  fill(pastelPurple);
-  text("Lives: " + playerLives, width*2/29, height*71/73);
   fill(pastelPurpleDark);
+  text("Lives: " + playerLives, width*2.0075/29, height*71.0075/73);
+  fill(pastelPurple);
   text("Lives: " + playerLives, width*2/29, height*71/73);
 }
 void manageBrick(int i) {

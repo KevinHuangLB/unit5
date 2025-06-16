@@ -14,7 +14,7 @@ import processing.sound.*;
 
 //SOUND VARIABLES
 Minim minim;
-AudioPlayer win,lose,hit,scoring,intro;
+AudioPlayer win, lose, hit, scoring, intro;
 //Font
 PFont f;
 
@@ -24,6 +24,7 @@ final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
+final int WIN = 4;
 
 color black = #000000;
 color white = #ffffff;
@@ -36,6 +37,8 @@ color pastelLightBlue = #9bf6ff;
 color pastelBlue = #a0c4ff;
 color pastelPurple = #bdb2ff;
 color pastelPurpleDark = #9A8BFF;
+color redDark = #810000;
+color greenDark = #016700;
 
 //player variables
 int playerX;
@@ -71,12 +74,12 @@ int frame = 0;
 //images
 PImage gameOverBackground;
 
- 
+
 void setup() {
-  size(1000, 1000,FX2D);
+  size(1000, 1000, FX2D);
 
   mode = INTRO;
-  
+
   //Minim
   minim = new Minim(this);
   win = minim.loadFile("win.wav");
@@ -84,11 +87,11 @@ void setup() {
   scoring = minim.loadFile("scoring.wav");
   hit = minim.loadFile("hit.wav");
   intro = minim.loadFile("intro.mp3");
-  
+
   // FONT
-f = createFont("Simanja.ttf",175);
-  
-//player setup
+  f = createFont("Simanja.ttf", 175);
+
+  //player setup
   playerX = width/2;
   playerY = height;
   playerD = 125;
@@ -100,12 +103,12 @@ f = createFont("Simanja.ttf",175);
   bally = height/5 * 3;
   balld = 20;
 
-  vx = 0; 
-  vy = 3; 
+  vx = 0;
+  vy = 3;
 
   //brick variables
   //setup array of bricks
-  int numBricks = 91; // 7 x 13 
+  int numBricks = 91; // 7 x 13
   x = new int[numBricks];
   y = new int[numBricks];
   alive = new boolean[numBricks];
@@ -126,22 +129,21 @@ f = createFont("Simanja.ttf",175);
   //x: 50 125 200 275 350 425 500 575 650 725 800 875 950
   //y: 50 125 200 275 350 425
   brickd = 25;
-  
+
   score = 0;
-  
+
   // gif SETUP
   numberOfFrames = 10;
   gif = new PImage[numberOfFrames];
-  
+
   int loopCounterGif = 0;
-  while (loopCounterGif < 10){
+  while (loopCounterGif < 10) {
     gif[loopCounterGif] = loadImage("frame_" + loopCounterGif + "_delay-0.06s.gif");
     loopCounterGif++;
   }
-  
+
   //image SETUP
   gameOverBackground = loadImage("gameoverbackground.png");
-  
 }
 void draw() {
   if (mode == INTRO) {
@@ -152,6 +154,8 @@ void draw() {
     pause();
   } else if (mode == GAMEOVER) {
     gameOver();
+  } else if (mode == WIN) {
+    win();
   } else {
     println("Error, mode is " + mode);
   }
